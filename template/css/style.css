@@ -1,0 +1,30 @@
+body{
+	background: url(/template/raspi_img/wallpaper.jpg);
+}
+*{
+	font-family: 'Open Sans', sans-serif;
+}
+.progressbar-text{
+	z-index: 1000;
+	position: absolute;
+	color: #000;
+	width: 100%;
+	left: 0;
+}
+.interface{
+	width: 100%;
+	padding: 20px;
+	display: table;
+	margin: 20px 0;
+	border-radius: 10px;
+	border: 1px solid #888;
+	background: #f9f9f9;
+	box-shadow: 0px 0px 35px -5px #333
+}
+.title-glyph{
+	font-size: 22px;
+	margin-right: 5px;
+}
+.progress{
+	margin-bottom: 5px !important;
+}	
