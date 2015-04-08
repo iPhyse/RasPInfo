@@ -86,8 +86,6 @@ class raspinfo
 		$i4 = round((100 / $i0) * $i1);
 		$i5 = 100 - $i4;
 		
-		//$i2 = $i0 - $i1;
-		
 		return array('total' => $i0, 'free' => $i1, 'used' => $i3, 'totalPerc' => 100, 'freePerc' => $i4, 'usedPerc' => $i5);
 	}
 }
