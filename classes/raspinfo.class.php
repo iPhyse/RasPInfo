@@ -14,7 +14,7 @@ class raspinfo
 		$s3 = explode( ':', shell_exec('lsb_release -d'));
 		
 		return array(
-			"distribution" => $s0[1], "version" => $s1[1], "codename" => $s2[1], "description" => $s3[1]
+			'distribution' => $s0[1], 'version' => $s1[1], 'codename' => $s2[1], 'description' => $s3[1]
 		);
 	}
 	
@@ -22,22 +22,22 @@ class raspinfo
 				
 		$e0 = shell_exec('cat /sys/class/thermal/thermal_zone0/temp');
 				
-		$e1 = shell_exec('cat /proc/cpuinfo | grep "model name"');
+		$e1 = shell_exec('cat /proc/cpuinfo | grep \'model name\'');
 		$a1 = explode( ':', preg_replace( '!\s+!', ' ', $e1 ) );
 		
 		$e2 = shell_exec(' cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq');
 				
-		$e3 = shell_exec('lscpu | grep "CPU(s)"');
+		$e3 = shell_exec('lscpu | grep \'CPU(s)\'');
 		$a3 = explode( ':', preg_replace( '!\s+!', ' ', $e3 ) );
 		
 		return array(
-			"model" => $a1[1], "clockspeed" => $e2/1000, "corecount" => substr($a3[1], 0, 3), "coretemp" => substr($e0/1000, 0, 4)
+			'model' => $a1[1], 'clockspeed' => $e2/1000, 'corecount' => substr($a3[1], 0, 3), 'coretemp' => substr($e0/1000, 0, 4)
 		);
 		
 	}
 	
 	public function getMemInfo(){
-		$e0 = shell_exec('free -t | grep "Mem"');
+		$e0 = shell_exec('free -t | grep \'Mem\'');
 		$a0 = explode( ' ', preg_replace( '!\s+!', ' ', $e0 ) );
 
 		$i1 = round($a0[1]/1024);
@@ -48,7 +48,7 @@ class raspinfo
 		$i5 = round((100/$a0[1] )*$a0[3]);
 		
 		return array(
-			"total" => $i1, "used" => $i2, "free" => $i3, "totalPerc" => 100, "usedPerc" => $i4, "freePerc" => $i5
+			'total' => $i1, 'used' => $i2, 'free' => $i3, 'totalPerc' => 100, 'usedPerc' => $i4, 'freePerc' => $i5
 		);
 	}
 	
@@ -75,7 +75,19 @@ class raspinfo
 		$i4 = $i0%60;
 		
 		return array(
-			"day" => $i1, "hour" => $i2, "min" => $i3, "sec" => $i4
+			'day' => $i1, 'hour' => $i2, 'min' => $i3, 'sec' => $i4
 		);
 	}	
+	
+	public function getDiskUsage(){
+		$i0 = round(disk_total_space('/') / 1024 / 1024);
+		$i1 = round(disk_free_space('/') / 1024 / 1024);
+		$i3 = $i0 - $i1;
+		$i4 = round((100 / $i0) * $i1);
+		$i5 = 100 - $i4;
+		
+		//$i2 = $i0 - $i1;
+		
+		return array('total' => $i0, 'free' => $i1, 'used' => $i3, 'totalPerc' => 100, 'freePerc' => $i4, 'usedPerc' => $i5);
+	}
 }

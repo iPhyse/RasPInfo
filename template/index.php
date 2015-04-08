@@ -104,7 +104,7 @@
                             echo "</div>";
                             echo "<div class=\"col-xs-8\">";
                             echo "<div class=\"progress\">";
-                            echo "<div class=\"progress-bar progress-bar-info\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:". $value . "%;\">";
+                            echo "<div class=\"progress-bar progress-bar-" . bsProgressColor($value, "asc") . "\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:". $value . "%;\">";
                             echo "<span class=\"col-md-12 progressbar-text\">" . $value . "% </span>";
                             echo "</div></div></div></div>";
                             
@@ -127,7 +127,7 @@
 						<div class="progress">
 							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $memData["totalPerc"] ?>%;">
 								<span class="col-md-12 progressbar-text">
-									<?php echo $memData["total"]  ?>M (<?php echo $memData["totalPerc"] ?>%)
+									<?php echo $memData["total"]  ?>MB (<?php echo $memData["totalPerc"] ?>%)
 								</span>
 							</div>
 						</div>
@@ -136,9 +136,9 @@
 					<div class="col-xs-4"> Used:</div>
 					<div class="col-xs-8"> 
 						<div class="progress">
-							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $memData["usedPerc"] ?>%;">
+							<div class="progress-bar progress-bar-<?php echo bsProgressColor($memData["usedPerc"], "asc") ?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $memData["usedPerc"] ?>%;">
 								<span class="col-md-12 progressbar-text">
-									<?php echo $memData["used"]  ?>M (<?php echo $memData["usedPerc"] ?>%)
+									<?php echo $memData["used"]  ?>MB (<?php echo $memData["usedPerc"] ?>%)
 								</span>
 							</div>
 						</div>
@@ -148,9 +148,9 @@
 					<div class="col-xs-8"> 
 						<div class="progress">
 							<div class="progress">
-								<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $memData["freePerc"] ?>%;">
+								<div class="progress-bar progress-bar-<?php echo bsProgressColor($memData["freePerc"], "desc") ?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $memData["freePerc"] ?>%;">
 									<span class="col-md-12 progressbar-text">
-										<?php echo $memData["free"]  ?>M (<?php echo $memData["freePerc"] ?>%)
+										<?php echo $memData["free"]  ?>MB (<?php echo $memData["freePerc"] ?>%)
 									</span>
 								</div>
 							</div> 
@@ -185,6 +185,48 @@
 					<div class="col-xs-8">
 						<b><?php echo $uptimeData["sec"]; ?></b>
 						&nbsp;
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="col-md-12">
+						<h2><span class="glyphicon glyphicon-tasks title-glyph" aria-hidden="true"> </span>DISK USAGE</h2>
+					</div>
+					
+					<div class="col-xs-4"> Total:</div>
+					<div class="col-xs-8">
+						<div class="progress">
+							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $diskData["totalPerc"] ?>%;">
+								<span class="col-md-12 progressbar-text">
+									<?php echo $diskData["total"]  ?>MB (<?php echo $diskData["totalPerc"] ?>%)
+								</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xs-4"> Used:</div>
+					<div class="col-xs-8"> 
+						<div class="progress">
+							<div class="progress-bar progress-bar-<?php echo bsProgressColor($dsikData["usedPerc"], "asc") ?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $diskData["usedPerc"] ?>%;">
+								<span class="col-md-12 progressbar-text">
+									<?php echo $diskData["used"]  ?>MB (<?php echo $diskData["usedPerc"] ?>%)
+								</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xs-4"> Free:</div>
+					<div class="col-xs-8"> 
+						<div class="progress">
+							<div class="progress">
+								<div class="progress-bar progress-bar-<?php echo bsProgressColor($diskData["freePerc"], "desc") ?>" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $diskData["freePerc"] ?>%;">
+									<span class="col-md-12 progressbar-text">
+										<?php echo $diskData["free"]  ?>MB (<?php echo $diskData["freePerc"] ?>%)
+									</span>
+								</div>
+							</div> 
+						</div>
 					</div>
 				</div>
 			</div>
