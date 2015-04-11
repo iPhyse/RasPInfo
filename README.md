@@ -9,14 +9,24 @@ raspinfo.class.php Includes:
 
 | data | function |
 | ------------- | ----------- |
-| Hostname | raspinfo->getHostname() |
-| Distribution name | raspinfo->getLinuxInfo()->['distribution'] |
+| [OS] Hostname | raspinfo->getHostname() |
+| [OS] Distribution name | raspinfo->getLinuxInfo()->['distribution'] |
+| [OS] Codename | |
+| [OS] Version | |
+| [OS] Description | |
 | | |
+| [CPU] model | |
+| [CPU] Cores | |
+| [CPU] Clockspeed | |
+| [CPU] Temperature | |
 | | |
+| [CPU] Everage load | |
+| [CPU] CPU's| |
 | | |
-| | |
-| | |
-| | |
-| | |
-| | |
+| [MEM] Total | |
+| [MEM] Used| |
+| [MEM] Free| |
+| [MEM] Total percentage| |
+| [MEM] Used percentage| |
+| [MEM] Free percentage| |
 | | |
