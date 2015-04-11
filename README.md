@@ -1,5 +1,5 @@
 # RasPInfo
-Simple Raspberry Pi info script
+Simple Raspberry Pi info script - Written in PHP
 
 Demo: http://pi.rickrichter.nl/
 
