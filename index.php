@@ -1,5 +1,13 @@
 <?php
-	include('./classes/raspinfo.class.php');
+	$host_os = strtolower(substr(PHP_OS, 0, 3));
+	switch($host_os){
+		case 'win':
+			include('./classes/raspinfo.win32.class.php');
+			break;
+		case 'lin':
+			include('./classes/raspinfo.linux.class.php');
+			break;
+	}
 	
 	//Small bootstrap progressbar type return (color)
 	function bsProgressColor($val, $option){
@@ -10,15 +18,15 @@
 		return $color;
 	}
 	
-	$bridge = new raspinfo();
+	$raspinfo = new raspinfo();
 	
-	$hostname = $bridge->gethostname();
-	$linuxInfo = $bridge->getLinuxInfo();
-	$cpuData = $bridge->getCpuData();
-	$cpuLoad = $bridge->getCpuLoad($cpuData["corecount"]);
-	$memData = $bridge->getMemInfo();
-	$uptimeData = $bridge->getUptimeInfo();
-	$diskData = $bridge->getDiskUsage();
+	$hostname = $raspinfo->gethostname();
+	$Info = $raspinfo->getInfo();
+	$cpuData = $raspinfo->getCpuData();
+	$cpuLoad = $raspinfo->getCpuLoad(1);
+	$memData = $raspinfo->getMemInfo();
+	$uptimeData = $raspinfo->getUptimeInfo();
+	$diskData = $raspinfo->getDiskUsage();
 	
 	include("template/index.php");
 ?>

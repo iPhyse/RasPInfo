@@ -1,5 +1,5 @@
 body{
-	background: url(/template/raspi_img/wallpaper.jpg);
+	background: url(../raspi_img/wallpaper.jpg);
 }
 *{
 	font-family: 'Open Sans', sans-serif;

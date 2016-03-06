@@ -11,7 +11,7 @@
 	
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/template/css/style.css">
+    <link rel="stylesheet" href="./template/css/style.css">
     
 	<script>
 		// every minute 60sec * 1000 ticks
@@ -28,7 +28,7 @@
 		<div class="interface">
 			<div>
 				<div class="col-sm-10"></div>
-				<div class="col-sm-2"><img src="/template/raspi_img/raspinfo.png" height="96px"></div>
+				<div class="col-sm-2"><img src="./template/raspi_img/raspinfo.png" height="96px"></div>
 			</div>
 			<div>
 				<div class="col-md-12">
@@ -45,25 +45,25 @@
 					<div>
 						<div class="col-sm-4"> Distribution:</div>
 						<div class="col-sm-8">
-							<b><?php echo $linuxInfo["distribution"]; ?></b>
+							<b><?php echo $Info["distribution"]; ?></b>
 						</div>
 					</div>
 					<div>
 						<div class="col-sm-4"> Codename:</div>
 						<div class="col-sm-8">
-							<b><?php echo $linuxInfo["codename"]; ?></b>
+							<b><?php echo $Info["codename"]; ?></b>
 						</div>
 					</div>
 					<div>
 						<div class="col-sm-4"> Version:</div>
 						<div class="col-sm-8">
-							<b><?php echo $linuxInfo["version"]; ?></b>
+							<b><?php echo $Info["version"]; ?></b>
 						</div>
 					</div>
 					<div>
 						<div class="col-sm-4"> Description:</div>
 						<div class="col-sm-8">
-							<b><?php echo $linuxInfo["description"]; ?></b>
+							<b><?php echo $Info["description"]; ?></b>
 						</div>
 					</div>
 				</div>
