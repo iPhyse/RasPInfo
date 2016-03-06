@@ -1,11 +1,19 @@
 # RasPInfo
 Simple Raspberry Pi info script - Written in PHP
 
+Monitor your Raspberry Pi via any browser.
+
+Required:
+- Any version of a Raspberry Pi
+- Windows IoT or a Linux Distribution ( Tested on Ubuntu/Debian )
+- Apache, Nginx or simular.
+- PHP up to 5.6.x. ( not tested on 7.x.x )
+
 Demo: http://pi.rickrichter.nl/
 
-#####Note: script does only work for linux distributions!
+#####Note: Windows IoT partly supported
 
-######raspinfo.class.php Includes:
+######raspinfo class Includes:
 
 | data | function |
 | ------------- | ----------- |
